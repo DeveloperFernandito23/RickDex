@@ -5,7 +5,7 @@ import FetchData from './FetchData.jsx';
 
 const Main = () =>{
 	return (
-		<View>
+		<View className='flex flex-row flex-wrap justify-center'> 
 			<FetchData />
 		</View>
 	);

@@ -23,13 +23,12 @@ const FetchData = () => {
 	}, []);
 
 	return ( 
-		<View className='bg-gray-100 rounded-lg shadow-md p-4'>
+		<View >
 			{isLoading ? (
 				<ActivityIndicator />
 			) : (
 				<FlatList
 					data={dataFetch}
-					className='gap-5'
 					keyExtractor={({id}) => id}
 					renderItem={({item}) => (
 						<View className="bg-black rounded-lg shadow-md p-4 flex flex-col items-center">
