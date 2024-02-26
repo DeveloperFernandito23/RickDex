@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Text, View, Image } from 'react-native';
+import { NativeWindStyleSheet } from 'nativewind';
+
+NativeWindStyleSheet.setOutput({
+	default: 'native',
+});
 
 const FetchData = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -31,9 +36,14 @@ const FetchData = () => {
 					data={dataFetch}
 					keyExtractor={({id}) => id}
 					renderItem={({item}) => (
-						<Text>
-							{item.name}
-						</Text>
+						<View> 
+							<Text>
+								{item.name}
+							</Text>
+							
+							<Image source={{ uri: item.image }} className='w-32 h-32' />
+
+						</View>
 					)}
 				/>
 			)}
