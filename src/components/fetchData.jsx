@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View, Image } from 'react-native';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
 const FetchData = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ const FetchData = () => {
 					keyExtractor={({id}) => id}
 					renderItem={({item}) => (
 						<Text>
-							{item.nane}
+							{item.name}
 						</Text>
 					)}
 				/>
@@ -40,4 +40,5 @@ const FetchData = () => {
 		</View>
 	);
 };
+
 export default FetchData;
