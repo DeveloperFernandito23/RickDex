@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Text, View, Image } from 'react-native';
-import { NativeWindStyleSheet } from 'nativewind';
-
-NativeWindStyleSheet.setOutput({
-	default: 'native',
-});
 
 const FetchData = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -28,21 +23,19 @@ const FetchData = () => {
 	}, []);
 
 	return ( 
-		<View style={{flex: 1, padding: 24}}>
+		<View className='bg-gray-100 rounded-lg shadow-md p-4'>
 			{isLoading ? (
 				<ActivityIndicator />
 			) : (
 				<FlatList
 					data={dataFetch}
+					className='gap-5'
 					keyExtractor={({id}) => id}
 					renderItem={({item}) => (
-						<View> 
-							<Text>
-								{item.name}
-							</Text>
-							
-							<Image source={{ uri: item.image }} className='w-32 h-32' />
-
+						<View className="bg-black rounded-lg shadow-md p-4 flex flex-col items-center">
+							<Image source={{ uri: item.image }} className="w-32 h-32 object-cover rounded-full mb-4" />
+							<Text className="text-gray-200 font-bold text-lg mb-2 text-center">{item.name}</Text>
+							<Text className="text-gray-500 text-sm text-center">{item.status}</Text>
 						</View>
 					)}
 				/>
