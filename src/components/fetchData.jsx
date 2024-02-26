@@ -22,31 +22,22 @@ const FetchData = () => {
 		getMovies();
 	}, []);
 
-	console.log(Object.values(dataFetch));
-
-	return (
-		<View style={{ flex: 1, padding: 24 }}>
+	return ( 
+		<View style={{flex: 1, padding: 24}}>
 			{isLoading ? (
 				<ActivityIndicator />
 			) : (
 				<FlatList
-					data={Object.values(dataFetch)}
-					keyExtractor={({ id }) => id}
-					renderItem={({ item }) => (
-						<View className="relative">
-							<Text>
-								{item.name}
-							</Text>
-							<Image
-								className="w-10 h-10 opacity-95 "
-								source={item.image}
-							/>
-						</View>
+					data={dataFetch}
+					keyExtractor={({id}) => id}
+					renderItem={({item}) => (
+						<Text>
+							{item.nane}
+						</Text>
 					)}
 				/>
 			)}
 		</View>
 	);
 };
-
 export default FetchData;

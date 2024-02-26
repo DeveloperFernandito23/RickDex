@@ -1,6 +1,6 @@
 import React from 'react';
 import { NativeWindStyleSheet } from 'nativewind';
-import Main from './src/components/Main.jsx';
+import Main from './src/components/Main';
 
 NativeWindStyleSheet.setOutput({
 	default: 'native',
