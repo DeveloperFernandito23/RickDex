@@ -34,7 +34,7 @@ const FetchData = () => {
 						isLoading ? <ActivityIndicator /> : null
 					}
 					renderItem={({item}) => (
-						<View className='p-2 flex-row items-center'>
+						<View className='p-2 flex-column items-center max-w-s'>
 							<Image
 								className='w-24 h-24 mr-8'
 								source={{
