@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View, Image } from 'react-native';
+import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView } from 'react-native';
 
 const FetchData = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -23,23 +23,30 @@ const FetchData = () => {
 	}, []);
 
 	return ( 
-		<View >
+		<SafeAreaView className=' flex-1 bg-white'>
 			{isLoading ? (
 				<ActivityIndicator />
 			) : (
 				<FlatList
 					data={dataFetch}
-					keyExtractor={({id}) => id}
+					keyExtractor={(item) => item.name}
+					ListFooterComponent={() =>
+						isLoading ? <ActivityIndicator /> : null
+					}
 					renderItem={({item}) => (
-						<View className="bg-black rounded-lg shadow-md p-4 flex flex-col items-center">
-							<Image source={{ uri: item.image }} className="w-32 h-32 object-cover rounded-full mb-4" />
-							<Text className="text-gray-200 font-bold text-lg mb-2 text-center">{item.name}</Text>
-							<Text className="text-gray-500 text-sm text-center">{item.status}</Text>
+						<View className='p-2 flex-row items-center'>
+							<Image
+								className='w-24 h-24 mr-8'
+								source={{
+									uri: item.image,
+								}}
+							/>
+							<Text className='font-bold text-xl'>{item.name}</Text>
 						</View>
 					)}
 				/>
 			)}
-		</View>
+		</SafeAreaView>
 	);
 };
 
