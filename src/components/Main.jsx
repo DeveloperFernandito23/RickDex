@@ -3,10 +3,10 @@ import { View } from 'react-native';
 import FetchData from './FetchData.jsx';
 
 
-const Main = () =>{
+const Main = ({ navigator }) => {
 	return (
-		<View className='w-full'> 
-			<FetchData />
+		<View className='w-full'>
+			<FetchData navigator={navigator} />
 		</View>
 	);
 };

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView } from 'react-native'
+import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native'
 
 const LIMIT = 42
 const URL_API = 'https://rickandmortyapi.com/api/character?page='
 
 
-const FetchData = () => {
+const FetchData = ({ navigator }) => {
 	const [isLoading, setLoading] = useState(true);
 	const [characters, setData] = useState([]);
 
@@ -44,15 +44,19 @@ const FetchData = () => {
 						isLoading ? <ActivityIndicator /> : null
 					}
 					renderItem={({ item }) => (
-						<View className='p-2 flex-column items-center max-w-s'>
-							<Image
-								className='w-24 h-24 mr-8'
-								source={{
-									uri: item.image,
-								}}
-							/>
-							<Text className='font-bold text-xl'>{item.name}</Text>
-						</View>
+						<TouchableOpacity onPress={navigator.navigate('MainDetails'/* , {
+							idCharacter: item.id
+						} */)}>
+							<View className='p-2 flex-column items-center max-w-s'>
+								<Image
+									className='w-24 h-24 mr-8'
+									source={{
+										uri: item.image,
+									}}
+								/>
+								<Text className='font-bold text-xl'>{item.name}</Text>
+							</View>
+						</TouchableOpacity>
 					)}
 				/>
 			)}

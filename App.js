@@ -1,12 +1,11 @@
 import React from 'react';
 import { NativeWindStyleSheet } from 'nativewind';
-import Main from './src/components/Main.jsx';
-import MainDetails from './src/components/MainDetails.jsx';
+import MainStack from './navigation/MainStack.js';
 
 NativeWindStyleSheet.setOutput({
 	default: 'native',
 });
 
 export default function App() {
-	return <Main />;
+	return <MainStack />;
 }
