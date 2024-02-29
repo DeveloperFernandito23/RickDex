@@ -4,72 +4,32 @@ import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView } from 're
 const LIMIT = 42
 const URL_API = 'https://rickandmortyapi.com/api/character?page='
 
-let characters = []
 
-/* async function fetchCharacter() {
-	try {
-		for (let i = 1; i <= LIMIT; i++) {
-			const response = await fetch('https://rickandmortyapi.com/api/character');
-			const json = await response.json();
-
-			json.results.forEach((item) => {
-				characters.push(item)
-			})
-		}
-
-		setData(characters);
-	} catch (error) {
-		console.error(error);
-	} finally {
-		setLoading(false);
-	}
-	console.log(characters)
-}
- */
-const FetchData = async () => {
+const FetchData = () => {
 	const [isLoading, setLoading] = useState(true);
-	const [dataFetch, setData] = useState([]);
+	const [characters, setData] = useState([]);
 
 	const fetchCharacter = async () => {
 		try {
-			const feetch = async () => {
-				for (let i = 1; i <= LIMIT; i++) {
-					const response = await fetch(`${URL_API}${i}`);
-					const json = await response.json();
+			let dataFetch = []
 
-					json.results.forEach((item) => {
-						characters.push(item)
-					})
-				}
+			for (let i = 1; i <= LIMIT; i++) {
+				const response = await fetch(`${URL_API}${i}`);
+				const json = await response.json();
+
+				dataFetch = dataFetch.concat(json.results)
 			}
-			console.log('TODO MORAPIO HIJO DEP UTA')
 
-			await feetch()
-
-			setData(JSON.parse(characters));
+			setData(dataFetch)
 		} catch (error) {
 			console.error(error);
 		} finally {
 			setLoading(false);
 		}
-		console.log(characters)
 	}
 
-	/* const getMovies = async () => {
-		try {
-			const response = await fetch('https://rickandmortyapi.com/api/character');
-			const json = await response.json();
-			console.log(json);
-			setData(json.results);
-		} catch (error) {
-			console.error(error);
-		} finally {
-			setLoading(false);
-		}
-	}; */
-
-	useEffect(async () => {
-		await fetchCharacter();
+	useEffect(() => {
+		fetchCharacter();
 	}, []);
 
 	return (
@@ -78,8 +38,8 @@ const FetchData = async () => {
 				<ActivityIndicator />
 			) : (
 				<FlatList
-					data={dataFetch}
-					keyExtractor={(item) => item.name}
+					data={characters}
+					keyExtractor={(item) => item.id}
 					ListFooterComponent={() =>
 						isLoading ? <ActivityIndicator /> : null
 					}
