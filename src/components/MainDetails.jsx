@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import FetchCharacter from './FetchCharacter.jsx';
 
 
-const MainDetails = ({ navigator/* , route  */}) => {
-/* 
-    const { idCharacter } = route.params */
+const MainDetails = ({ route }) => {
+
+    const { idCharacter } = route.params
 
     return (
         <View className='w-full'>
-            <Text>Hola zarzillo tengo el id   idCharacte</Text>
+            <FetchCharacter idCharacter={idCharacter} />
+            {/* <Text>Hola zarzillo tengo el id { idCharacter }</Text> */}
         </View>
     );
 };

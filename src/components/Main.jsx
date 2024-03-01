@@ -1,13 +1,26 @@
-import React from 'react';
-import { View } from 'react-native';
-import FetchData from './FetchData.jsx';
+import React from 'react'
+import { View, ImageBackground } from 'react-native'
+import FetchData from './FetchData.jsx'
+import { useNavigation } from '@react-navigation/native'
 
+//cambiar estilo
+const Main = () => {
+	let navigator = useNavigation()
 
-const Main = ({ navigator }) => {
+	navigator.setOptions({
+		title: 'RickDex'
+	})
+
 	return (
-		<View className='w-full'>
-			<FetchData navigator={navigator} />
-		</View>
+		<ImageBackground
+			source={{ uri: '../images/background.jpg' }}
+			resizeMode={'cover'}
+			style={{ flex: 1 }}
+		>
+			<View className='w-full' style={{ flex: 1 }}>
+				<FetchData />
+			</View>
+		</ImageBackground>
 	);
 };
 
