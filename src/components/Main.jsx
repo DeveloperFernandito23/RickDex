@@ -14,13 +14,17 @@ const Main = () => {
 	}, []);
 
 	return (
-		<ImageBackground
-			source={require('../images/background.jpg')}
-			resizeMode={'cover'}
-			style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}
-		>
-			<FetchData />
-		</ImageBackground>
+		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+			<ImageBackground
+				source={require('../images/background.jpg')}
+				resizeMode={'cover'}
+				style={{ flex: 1, width: '100%', height: '100%' }}
+			>
+				<View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1 }}>
+					<FetchData />
+				</View>
+			</ImageBackground>
+		</View>
 	);
 };
 
