@@ -39,7 +39,7 @@ const FetchCharacter = ({ idCharacter }) => {
 		<SafeAreaView className=' flex-1 bg-white'>
 			<View className='p-2 flex-column items-center max-w-s'>
 				<Image
-					className={'w-52 h-52 mr-8 rounded-xl border-4 ' + STATES[character.status]}
+					className={'w-52 h-52 mr-8 rounded-xl'}
 					style={{ margin: 0 }}
 					source={{
 						uri: character.image,
