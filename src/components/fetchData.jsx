@@ -4,13 +4,13 @@ import { useNavigation } from '@react-navigation/native'
 
 const LIMIT = 42
 const URL_API = 'https://rickandmortyapi.com/api/character?page='
-const GENDERS = {
+export const GENDERS = {
 	Male: 'Masculino',
 	Female: 'Femenino',
 	unknown: 'Desconocido',
 	Genderless: 'Sin género'
 }
-const STATES = {
+export const STATES = {
 	Alive: "border-green-500",
 	Dead: "border-red-500",
 	unknown: "border-gray-500"
