@@ -25,23 +25,27 @@ const FetchCharacter = ({ idCharacter }) => {
 	}
 
 	useEffect(() => {
-		fetchCharacter();
-	}, []);
-
-	navigator.setOptions({
-		title: character.name
-	})
+		fetchCharacter()
+		navigator.setOptions({
+			title: character.name
+		})
+	}, [])
 
 	return (
 		<SafeAreaView className=' flex-1 bg-white'>
 			<View className='p-2 flex-column items-center max-w-s'>
 				<Image
-					className='w-24 h-24 mr-8'
+					className='w-52 h-52 mr-8'
 					source={{
 						uri: character.image,
 					}}
 				/>
 				<Text className='font-bold text-xl'>{character.name}</Text>
+				<Text className='font-bold text-l'>{character.species}</Text>
+				<Text className='font-bold text-l'>{character.type}</Text>
+				<Text className='font-bold text-l'>{character.gender}</Text>
+				<Text className='font-bold text-l'>{character.origin?.name}</Text>
+				<Text className='font-bold text-xl'>{character.location?.name}</Text>
 			</View>
 		</SafeAreaView>
 	);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native'
+import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, Pressable } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const LIMIT = 42
@@ -61,7 +61,7 @@ const FetchData = () => {
 					}
 					renderItem={({ item }) => (
 						<View className='p-2 flex-column items-center max-w-s'>
-							<TouchableOpacity onPress={() => {
+							<Pressable onPress={() => {
 								navigator.navigate('MainDetails', {
 									idCharacter: item.id
 								})
@@ -69,13 +69,14 @@ const FetchData = () => {
 							}}>
 								<Image
 									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
+									style={{ margin: 0 }}
 									source={{
 										uri: item.image,
 									}}
 								/>
 								<Text className='font-bold text-xl text-center text-white'>{item.name}</Text>
 								<Text className='font-bold text-l text-center text-white'>{GENDERS[item.gender]}</Text>
-							</TouchableOpacity>
+							</Pressable>
 						</View>
 					)
 					}
