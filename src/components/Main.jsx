@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, ImageBackground } from 'react-native'
 import FetchData from './FetchData.jsx'
 import { useNavigation } from '@react-navigation/native'
 
 //cambiar estilo
 const Main = () => {
-	let navigator = useNavigation()
+	const navigator = useNavigation()
 
-	navigator.setOptions({
-		title: 'RickDex'
-	})
+	useEffect(() => {
+		navigator.setOptions({
+			title: 'RickDex',
+		});
+	}, []);
 
 	return (
 		<ImageBackground

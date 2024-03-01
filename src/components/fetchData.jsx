@@ -49,13 +49,13 @@ const FetchData = () => {
 						isLoading ? <ActivityIndicator /> : null
 					}
 					renderItem={({ item }) => (
-						<TouchableOpacity onPress={() => {
-							navigator.navigate('MainDetails', {
-								idCharacter: item.id
-							})
+						<View className='p-2 flex-column items-center max-w-s'>
+							<TouchableOpacity onPress={() => {
+								navigator.navigate('MainDetails', {
+									idCharacter: item.id
+								})
 
-						}}>
-							<View className='p-2 flex-column items-center max-w-s'>
+							}}>
 								<Image
 									className='w-24 h-24 mr-8'
 									source={{
@@ -63,12 +63,13 @@ const FetchData = () => {
 									}}
 								/>
 								<Text className='font-bold text-xl'>{item.name}</Text>
-							</View>
-						</TouchableOpacity>
-					)}
+							</TouchableOpacity>
+						</View>
+					)
+					}
 				/>
 			)}
-		</SafeAreaView>
+		</SafeAreaView >
 	);
 };
 

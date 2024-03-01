@@ -8,7 +8,7 @@ const URL_API = 'https://rickandmortyapi.com/api/character/'
 const FetchCharacter = ({ idCharacter }) => {
 	let navigator = useNavigation()
 
-	//const [isLoading, setLoading] = useState(true);
+	const [isLoading, setLoading] = useState(true);
 	const [character, setData] = useState([]);
 
 	const fetchCharacter = async () => {
@@ -41,9 +41,6 @@ const FetchCharacter = ({ idCharacter }) => {
 						uri: character.image,
 					}}
 				/>
-				<Text className='font-bold text-xl'>{character.name}</Text>
-				<Text className='font-bold text-xl'>{character.name}</Text>
-				<Text className='font-bold text-xl'>{character.name}</Text>
 				<Text className='font-bold text-xl'>{character.name}</Text>
 			</View>
 		</SafeAreaView>
