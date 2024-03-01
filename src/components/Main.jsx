@@ -15,13 +15,11 @@ const Main = () => {
 
 	return (
 		<ImageBackground
-			source={{ uri: '../images/background.jpg' }}
+			source={require('../images/background.jpg')}
 			resizeMode={'cover'}
-			style={{ flex: 1 }}
+			style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}
 		>
-			<View className='w-full' style={{ flex: 1 }}>
-				<FetchData />
-			</View>
+			<FetchData />
 		</ImageBackground>
 	);
 };

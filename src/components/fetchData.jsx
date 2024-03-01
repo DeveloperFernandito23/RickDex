@@ -4,6 +4,17 @@ import { useNavigation } from '@react-navigation/native'
 
 const LIMIT = 42
 const URL_API = 'https://rickandmortyapi.com/api/character?page='
+const GENDERS = {
+	Male: 'Masculino',
+	Female: 'Femenino',
+	unknown: 'Desconocido',
+	Genderless: 'Sin género'
+}
+const STATES = {
+	Alive: "border-green-500",
+	Dead: "border-red-500",
+	unknown: "border-gray-500"
+}
 
 const FetchData = () => {
 	let navigator = useNavigation()
@@ -36,7 +47,7 @@ const FetchData = () => {
 	}, []);
 
 	return (
-		<SafeAreaView className=' flex-1 bg-white'>
+		<SafeAreaView className='flex-1 w-full'>
 			{isLoading ? (
 				<ActivityIndicator />
 			) : (
@@ -57,12 +68,13 @@ const FetchData = () => {
 
 							}}>
 								<Image
-									className='w-24 h-24 mr-8'
+									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
 									source={{
 										uri: item.image,
 									}}
 								/>
-								<Text className='font-bold text-xl'>{item.name}</Text>
+								<Text className='font-bold text-xl text-center text-white'>{item.name}</Text>
+								<Text className='font-bold text-l text-center text-white'>{GENDERS[item.gender]}</Text>
 							</TouchableOpacity>
 						</View>
 					)
