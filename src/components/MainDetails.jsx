@@ -10,7 +10,6 @@ const MainDetails = ({ route }) => {
     return (
         <View className='w-full'>
             <FetchCharacter idCharacter={idCharacter} />
-            {/* <Text>Hola zarzillo tengo el id { idCharacter }</Text> */}
         </View>
     );
 };
