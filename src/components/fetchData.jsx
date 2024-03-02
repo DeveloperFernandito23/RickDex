@@ -52,9 +52,15 @@ const FetchData = () => {
 				<ActivityIndicator />
 			) : (
 				<FlatList
+					className='grid grid-cols-3 gap-4 p-10' id='prueba'
 					data={characters}
 					keyExtractor={(item) => item.id}
-					//contentContainerStyle={{ flexGrow: 1 }} // Ajusta el estilo del contenedor de contenido
+					contentContainerStyle={{
+						display: "grid",
+						gridTemplateColumns: "repeat(3, 1fr)",
+						gridGap: "4px",
+						padding: 10,
+					  }} // Ajusta el estilo del contenedor de contenido
 					/* style={{ flex: 1 }} // Ajusta el estilo de FlatList */
 					ListFooterComponent={() =>
 						isLoading ? <ActivityIndicator /> : null
