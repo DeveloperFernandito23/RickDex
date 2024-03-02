@@ -56,7 +56,7 @@ const FetchData = () => {
 					keyExtractor={(item) => item.id}
 					contentContainerStyle={{
 						display: "grid",
-						gridTemplateColumns: "repeat(3, 1fr)",
+						gridTemplateColumns: "repeat(auto-fit, minmax(min(25rem, 100%), 1fr))",
 						gridGap: "4px",
 						padding: 10,
 					  }} // Ajusta el estilo del contenedor de contenido
