@@ -74,7 +74,7 @@ const FetchData = () => {
 								});
 
 							}}
-							className='items-center' >
+							className='items-center bg-black/60 rounded-3xl p-8' id='prueba2'>
 								<Image
 									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
 									style={{ margin: 0 }}
