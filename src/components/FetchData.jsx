@@ -56,10 +56,10 @@ const FetchData = () => {
 					keyExtractor={(item) => item.id}
 					contentContainerStyle={{
 						display: 'grid',
-						gridTemplateColumns: 'repeat(auto-fit, minmax(min(25rem, 100%), 1fr))',
+						gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
 						gridGap: '4px',
 						padding: 10,
-					  }} // Ajusta el estilo del contenedor de contenido
+					}} // Ajusta el estilo del contenedor de contenido
 					/* style={{ flex: 1 }} // Ajusta el estilo de FlatList */
 					ListFooterComponent={() =>
 						isLoading ? <ActivityIndicator /> : null
