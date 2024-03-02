@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { View, ImageBackground, Image, Text, StyleSheet } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { View, ImageBackground, Image, Text, StyleSheet, Pressable } from 'react-native';
 import FetchData from './FetchData';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-web';
@@ -53,6 +53,8 @@ const Main = () => {
 		},
 	});
 
+	const scrollViewRef = useRef();
+
 	useEffect(() => {
 		startMain()
 	}, []);
@@ -64,10 +66,10 @@ const Main = () => {
 				resizeMode={'cover'}
 				style={{ flex: 1, width: '100%', height: '100%' }}
 			>
-				<ScrollView onScroll={handleScroll} scrollEventThrottle={16}>
-					<View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center' }}>
+				<ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16}>
+					<View id='start' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center' }}>
 						<Text
-						style={styles.textWithBorder}>
+							style={styles.textWithBorder}>
 							RickDex
 						</Text>
 						<Image
@@ -79,10 +81,15 @@ const Main = () => {
 					</View>
 				</ScrollView>
 				<View style={{ margin: 0, position: 'absolute', bottom: 10, right: 0, zIndex: 100, opacity: getOpacity() }}>
-					<Image
-						className='w-16 h-16 mr-8'
-						source={require('../images/portal.png')}
-					/>
+					<Pressable
+						onPress={() => {
+							scrollViewRef.current?.scrollTo({ x: 0, y: 0, animated: true });
+						}}>
+						<Image
+							className='w-16 h-16 mr-8'
+							source={require('../images/portal.png')}
+						/>
+					</Pressable>
 				</View>
 			</ImageBackground>
 		</View >
