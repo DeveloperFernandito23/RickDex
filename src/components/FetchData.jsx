@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, Pressable } from 'react-native';
+import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, Pressable, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 
 const LIMIT = 42;
 const URL_API = 'https://rickandmortyapi.com/api/character?page=';
@@ -21,6 +22,8 @@ const FetchData = () => {
 
 	const [isLoading, setLoading] = useState(true);
 	const [characters, setData] = useState([]);
+	const [highlightedId, setHighlightedId] = useState(null);
+	const [bgColor, setBgColor] = useState('rgba(75, 85, 99, 0.85)');
 
 	const fetchCharacters = async () => {
 		try {
@@ -42,6 +45,22 @@ const FetchData = () => {
 		}
 	};
 
+	const overMouse = (id) => setHighlightedId(id)
+
+	const leaveMouse = (id) => setHighlightedId(null)
+
+	const styles = StyleSheet.create({
+		defaultStyle: {
+			backgroundColor: 'rgba(75, 85, 99, 0.85)',
+			gap: 8
+		},
+
+		hoverStyle: {
+			backgroundColor: 'rgb(75, 85, 99)',
+			gap: 8
+		}
+	});
+
 	useEffect(() => {
 		fetchCharacters();
 	}, []);
@@ -61,21 +80,25 @@ const FetchData = () => {
 						padding: 10,
 						width: '90%',
 						margin: 'auto'
-					}} 
+					}}
 					/* style={{ flex: 1 }} // Ajusta el estilo de FlatList */
 					ListFooterComponent={() =>
 						isLoading ? <ActivityIndicator /> : null
 					}
+
 					renderItem={({ item }) => (
 						<View className='p-2 flex-column items-center max-w-s'>
-							<Pressable onPress={() => {
-								navigator.navigate('MainDetails', {
-									idCharacter: item.id
-								});
-
-							}}// Probando el color para ver si queda bien sin opacidad con el color de la api
-							className='items-center rounded-3xl p-8'
-							style={{ backgroundColor: 'rgba(75, 85, 99, 0.85)' }}>
+							<Pressable
+								onPress={() => {
+									navigator.navigate('MainDetails', {
+										idCharacter: item.id
+									});
+								}}// Probando el color para ver si queda bien sin opacidad con el color de la api
+								className='items-center rounded-3xl p-8'
+								style={[styles.defaultStyle, highlightedId === item.id && styles.hoverStyle]}
+								onMouseOver= {() => overMouse(item.id)}
+								onMouseLeave= {() => leaveMouse()}
+							>
 								<Image
 									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
 									style={{ margin: 0 }}
@@ -87,12 +110,11 @@ const FetchData = () => {
 								<Text className='font-bold text-l text-center text-white'>{GENDERS[item.gender]}</Text>
 							</Pressable>
 						</View>
-					)
-					}
+					)}
 				/>
 			)}
 		</SafeAreaView >
 	);
-};
+}
 
-export default FetchData;
+export default FetchData; 
