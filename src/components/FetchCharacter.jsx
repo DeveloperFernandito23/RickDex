@@ -41,25 +41,27 @@ const FetchCharacter = ({ idCharacter }) => {
 		Dead: isFemale ? 'Muerta' : 'Muerto',
 		unknown: 'Desconocido'
 	};
-	
+
 	let characterStatus = STATES[character.status];
 
 	return (
 		<SafeAreaView className=' flex-1 bg-white'>
 			<View className='p-2 flex-column items-center max-w-s'>
 				<Image
-					className={'w-80 h-72 mr-8 rounded-xl'}
-					style={{ margin: 0 }}
+					className={'h-96 mr-8 rounded-xl'}
+					style={{ margin: 0, width: '30rem' }}
 					source={{
-						uri: character.image,
+						uri: character.image
 					}}
 				/>
-				<Text className='font-bold text-l'>{characterStatus}</Text>
-				<Text className='font-bold text-l'>{characterSpecies}</Text>
-				<Text className='font-bold text-l'>{characterType}</Text>
-				<Text className='font-bold text-l'>{characterGender}</Text>
-				<Text className='font-bold text-l'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
-				<Text className='font-bold text-l'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+				<View>
+					<Text className='font-bold text-l'>Estado: {characterStatus}</Text>
+					<Text className='font-bold text-l'>Especie: {characterSpecies}</Text>
+					<Text className='font-bold text-l'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
+					<Text className='font-bold text-l'>Género: {characterGender}</Text>
+					<Text className='font-bold text-l'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
+					<Text className='font-bold text-l'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+				</View>
 			</View>
 		</SafeAreaView>
 	);

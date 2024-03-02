@@ -51,7 +51,7 @@ const FetchData = () => {
 
 	const styles = StyleSheet.create({
 		defaultStyle: {
-			backgroundColor: 'rgba(75, 85, 99, 0.85)',
+			backgroundColor: 'rgba(75, 85, 99, 0.75)',
 			gap: 8
 		},
 
