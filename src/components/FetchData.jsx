@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, Pressable, StyleSheet } from 'react-native';
+import { ActivityIndicator, FlatList, Text, TextInput, View, Image, SafeAreaView, Pressable, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
 
 const LIMIT = 42;
 const URL_API = 'https://rickandmortyapi.com/api/character?page=';
+
+let allCharacters = []
+
 export const GENDERS = {
 	Male: 'Masculino',
 	Female: 'Femenino',
@@ -23,7 +25,7 @@ const FetchData = () => {
 	const [isLoading, setLoading] = useState(true);
 	const [characters, setData] = useState([]);
 	const [highlightedId, setHighlightedId] = useState(null);
-	const [bgColor, setBgColor] = useState('rgba(75, 85, 99, 0.85)');
+	const [query, setQuery] = useState('');
 
 	const fetchCharacters = async () => {
 		try {
@@ -36,14 +38,23 @@ const FetchData = () => {
 				dataFetch = dataFetch.concat(json.results);
 			}
 
-			//setData(dataFetch.filter(item => item.name.includes('Rick')))
 			setData(dataFetch);
+
+			allCharacters = dataFetch
 		} catch (error) {
 			console.error(error);
 		} finally {
 			setLoading(false);
 		}
 	};
+
+	const handleQuery = (text) => {
+		setQuery(text)
+
+		let filteredData = allCharacters.filter((character) => character?.name.toLowerCase().includes(text))
+		
+		setData(filteredData)
+	}
 
 	const overMouse = (id) => setHighlightedId(id)
 
@@ -67,8 +78,29 @@ const FetchData = () => {
 
 	return (
 		<SafeAreaView className='flex-1 w-full'>
+			<TextInput
+				placeholder='Buscar Personaje...'
+				clearButtonMode='always'
+				style={{
+					paddingHorizontal: 20,
+					paddingVertical: 10,
+					borderColor: '#ccc',
+					borderWidth: 1,
+					borderRadius: 8,
+					width: 'min(25rem, 83%)',
+					margin: 'auto',
+					color: 'white',
+					backgroundColor: 'rgb(75, 85, 99)',
+				}}
+				autoCapitalize='none'
+				autoComplete={false}
+				value={query}
+				onChange={(text) => handleQuery(text?.nativeEvent?.text)}
+			/>
 			{isLoading ? (
 				<ActivityIndicator />
+			) : characters.length === 0 ? (
+				<Text className='w-10 h-10'>No Hay Personajes...</Text> //FERDINANNNNNNNNDOOOOOO ESTO HABRÁ QUE PONERLO BONICO NOOOOO??? :)))
 			) : (
 				<FlatList
 					data={characters}
@@ -81,7 +113,7 @@ const FetchData = () => {
 						width: '90%',
 						margin: 'auto'
 					}}
-					/* style={{ flex: 1 }} // Ajusta el estilo de FlatList */
+
 					ListFooterComponent={() =>
 						isLoading ? <ActivityIndicator /> : null
 					}
@@ -93,11 +125,11 @@ const FetchData = () => {
 									navigator.navigate('MainDetails', {
 										idCharacter: item.id
 									});
-								}}// Probando el color para ver si queda bien sin opacidad con el color de la api
+								}}
 								className='items-center rounded-3xl p-8'
 								style={[styles.defaultStyle, highlightedId === item.id && styles.hoverStyle]}
-								onMouseOver= {() => overMouse(item.id)}
-								onMouseLeave= {() => leaveMouse()}
+								onMouseOver={() => overMouse(item.id)}
+								onMouseLeave={() => leaveMouse()}
 							>
 								<Image
 									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}

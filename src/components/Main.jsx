@@ -67,7 +67,7 @@ const Main = () => {
 				style={{ flex: 1, width: '100%', height: '100%' }}
 			>
 				<ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16}>
-					<View id='start' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center' }}>
+					<View id='start'style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center'}}> {/* Habría que poner lo del fondo grande*/}
 						<Text
 							style={styles.textWithBorder}>
 							RickDex
