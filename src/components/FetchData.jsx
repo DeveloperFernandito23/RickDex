@@ -47,7 +47,7 @@ const FetchData = () => {
 
 	const overMouse = (id) => setHighlightedId(id)
 
-	const leaveMouse = (id) => setHighlightedId(null)
+	const leaveMouse = () => setHighlightedId(null)
 
 	const styles = StyleSheet.create({
 		defaultStyle: {
