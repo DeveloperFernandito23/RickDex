@@ -67,7 +67,7 @@ const Main = () => {
 				<ScrollView onScroll={handleScroll} scrollEventThrottle={16}>
 					<View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center' }}>
 						<Text
-						style={styles.textWithBorder} >{/* #559B6A */}
+						style={styles.textWithBorder} >
 							RickDex
 						</Text>
 						<Image
