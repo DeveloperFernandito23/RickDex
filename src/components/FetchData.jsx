@@ -74,7 +74,8 @@ const FetchData = () => {
 								});
 
 							}}// Probando el color para ver si queda bien sin opacidad con el color de la api
-							className='items-center bg-gray-600 rounded-3xl p-8'>
+							className='items-center rounded-3xl p-8'
+							style={{ backgroundColor: 'rgba(75, 85, 99, 0.85)' }}>
 								<Image
 									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
 									style={{ margin: 0 }}
