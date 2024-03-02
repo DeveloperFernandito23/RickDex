@@ -65,7 +65,7 @@ const FetchData = () => {
 						isLoading ? <ActivityIndicator /> : null
 					}
 					renderItem={({ item }) => (
-						<View className='p-2 flex-column items-center max-w-s items-center'>
+						<View className='p-2 flex-column items-center max-w-s'>
 							<Pressable onPress={() => {
 								navigator.navigate('MainDetails', {
 									idCharacter: item.id
