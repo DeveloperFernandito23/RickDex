@@ -57,8 +57,10 @@ const FetchData = () => {
 					contentContainerStyle={{
 						display: 'grid',
 						gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
-						gridGap: '4px',
+						gridGap: '4rem',
 						padding: 10,
+						width: '90%',
+						margin: 'auto'
 					}} // Ajusta el estilo del contenedor de contenido
 					/* style={{ flex: 1 }} // Ajusta el estilo de FlatList */
 					ListFooterComponent={() =>
