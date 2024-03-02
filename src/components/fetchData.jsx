@@ -52,7 +52,6 @@ const FetchData = () => {
 				<ActivityIndicator />
 			) : (
 				<FlatList
-					className='grid grid-cols-3 gap-4 p-10' id='prueba'
 					data={characters}
 					keyExtractor={(item) => item.id}
 					contentContainerStyle={{
