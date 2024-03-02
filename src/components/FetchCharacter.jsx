@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, Image, SafeAreaView, ImageBackground } from 'react-native';
+import { Text, View, ActivityIndicator, Image, SafeAreaView, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { GENDERS } from './FetchData';
 
@@ -8,6 +8,7 @@ const URL_API = 'https://rickandmortyapi.com/api/character/';
 const FetchCharacter = ({ idCharacter }) => {
 	let navigator = useNavigation();
 
+	const [isLoading, setLoading] = useState(true);
 	const [character, setData] = useState([]);
 
 	const fetchCharacter = async () => {
@@ -18,6 +19,8 @@ const FetchCharacter = ({ idCharacter }) => {
 			setData(json);
 		} catch (error) {
 			console.error(error);
+		} finally {
+			setTimeout(() => setLoading(false), 500)
 		}
 	};
 
@@ -53,14 +56,18 @@ const FetchCharacter = ({ idCharacter }) => {
 			>
 				<View
 					className='p-8'
-					style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1 }}>
-					<View
-						className='flex-row max-w-s justify-between flex-wrap rounded-3xl p-7'
+					style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1 }}
+				>
+					{ isLoading ? (
+						<ActivityIndicator />
+					) : (
+						<View
+						className='flex-row max-w-s justify-between flex-wrap 	rounded-3xl p-7'
 						style={{ backgroundColor: 'rgb(75, 85, 99)' }}
 					>
 						<Image
 							className={'mr-8 rounded-xl'}
-							style={{ margin: 0, width: '33rem', height: '27rem' }}
+							style={{ margin: 0, width: 'min(33rem, 100%)', height: 'min(27rem)' }} //Queda pendiente poner esto responsivo para el fffuuuucking phonne de tu colega
 							source={{
 								uri: character.image
 							}}
@@ -74,6 +81,7 @@ const FetchCharacter = ({ idCharacter }) => {
 							<Text className='font-bold text-3xl right-20 text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
 						</View>
 					</View>
+					)}
 				</View>
 			</ImageBackground>
 		</SafeAreaView >

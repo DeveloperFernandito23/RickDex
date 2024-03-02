@@ -91,6 +91,8 @@ const FetchData = () => {
 					margin: 'auto',
 					color: 'white',
 					backgroundColor: 'rgb(75, 85, 99)',
+					marginTop: 33,
+					marginBottom: 33,
 				}}
 				autoCapitalize='none'
 				autoComplete={false}
@@ -100,7 +102,7 @@ const FetchData = () => {
 			{isLoading ? (
 				<ActivityIndicator />
 			) : characters.length === 0 ? (
-				<Text className='w-10 h-10'>No Hay Personajes...</Text> //FERDINANNNNNNNNDOOOOOO ESTO HABRÁ QUE PONERLO BONICO NOOOOO??? :)))
+				<Text className='text-xl text-center text-white font-bold'>No Hay Personajes... :(</Text> //FERDINANNNNNNNNDOOOOOO ESTO HABRÁ QUE PONERLO BONICO NOOOOO??? :)))
 			) : (
 				<FlatList
 					data={characters}
