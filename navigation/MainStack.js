@@ -25,6 +25,15 @@ export default function MainStack() {
 			<Stack.Screen
 				name='MainDetails'
 				component={MainDetails}
+				options={{
+					headerStyle: {
+						backgroundColor: 'rgb(55, 65, 79)'
+					},
+					headerTintColor: 'white',
+					headerTitleStyle: {
+						fontWeight: 'bold'
+					}
+				}}
 			/>
 
 		</Stack.Navigator>

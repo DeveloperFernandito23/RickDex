@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, Image, SafeAreaView } from 'react-native';
+import { Text, View, Image, SafeAreaView, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { GENDERS } from './FetchData';
 
@@ -45,25 +45,38 @@ const FetchCharacter = ({ idCharacter }) => {
 	let characterStatus = STATES[character.status];
 
 	return (
-		<SafeAreaView className=' flex-1 bg-white'>
-			<View className='p-2 flex-column items-center max-w-s'>
-				<Image
-					className={'h-96 mr-8 rounded-xl'}
-					style={{ margin: 0, width: '30rem' }}
-					source={{
-						uri: character.image
-					}}
-				/>
-				<View>
-					<Text className='font-bold text-l'>Estado: {characterStatus}</Text>
-					<Text className='font-bold text-l'>Especie: {characterSpecies}</Text>
-					<Text className='font-bold text-l'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
-					<Text className='font-bold text-l'>Género: {characterGender}</Text>
-					<Text className='font-bold text-l'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
-					<Text className='font-bold text-l'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+		<SafeAreaView style={{ height: '100vh' }}>
+			<ImageBackground
+				source={require('../images/background.jpg')}
+				resizeMode={'cover'}
+				style={{ flex: 1, width: '100%', height: '100%' }}
+			>
+				<View
+					className='p-8'
+					style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1 }}>
+					<View
+						className='flex-row max-w-s justify-between flex-wrap rounded-3xl p-7'
+						style={{ backgroundColor: 'rgb(75, 85, 99)' }}
+					>
+						<Image
+							className={'mr-8 rounded-xl'}
+							style={{ margin: 0, width: '33rem', height: '27rem' }}
+							source={{
+								uri: character.image
+							}}
+						/>
+						<View className='justify-around'>
+							<Text className='font-bold text-3xl right-20 text-white'>Estado: {characterStatus}</Text>
+							<Text className='font-bold text-3xl right-20 text-white'>Especie: {characterSpecies}</Text>
+							<Text className='font-bold text-3xl right-20 text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
+							<Text className='font-bold text-3xl right-20 text-white'>Género: {characterGender}</Text>
+							<Text className='font-bold text-3xl right-20 text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
+							<Text className='font-bold text-3xl right-20 text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+						</View>
+					</View>
 				</View>
-			</View>
-		</SafeAreaView>
+			</ImageBackground>
+		</SafeAreaView >
 	);
 };
 
