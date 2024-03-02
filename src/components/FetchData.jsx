@@ -1,46 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, Pressable } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const LIMIT = 42
-const URL_API = 'https://rickandmortyapi.com/api/character?page='
+const LIMIT = 42;
+const URL_API = 'https://rickandmortyapi.com/api/character?page=';
 export const GENDERS = {
 	Male: 'Masculino',
 	Female: 'Femenino',
 	unknown: 'Desconocido',
 	Genderless: 'Sin género'
-}
+};
 export const STATES = {
-	Alive: "border-green-500",
-	Dead: "border-red-500",
-	unknown: "border-gray-500"
-}
+	Alive: 'border-green-500',
+	Dead: 'border-red-500',
+	unknown: 'border-gray-500'
+};
 
 const FetchData = () => {
-	let navigator = useNavigation()
+	let navigator = useNavigation();
 
 	const [isLoading, setLoading] = useState(true);
 	const [characters, setData] = useState([]);
 
 	const fetchCharacters = async () => {
 		try {
-			let dataFetch = []
+			let dataFetch = [];
 
 			for (let i = 1; i <= LIMIT; i++) {
 				const response = await fetch(`${URL_API}${i}`);
 				const json = await response.json();
 
-				dataFetch = dataFetch.concat(json.results)
+				dataFetch = dataFetch.concat(json.results);
 			}
 
 			//setData(dataFetch.filter(item => item.name.includes('Rick')))
-			setData(dataFetch)
+			setData(dataFetch);
 		} catch (error) {
 			console.error(error);
 		} finally {
 			setLoading(false);
 		}
-	}
+	};
 
 	useEffect(() => {
 		fetchCharacters();
@@ -55,9 +55,9 @@ const FetchData = () => {
 					data={characters}
 					keyExtractor={(item) => item.id}
 					contentContainerStyle={{
-						display: "grid",
-						gridTemplateColumns: "repeat(auto-fit, minmax(min(25rem, 100%), 1fr))",
-						gridGap: "4px",
+						display: 'grid',
+						gridTemplateColumns: 'repeat(auto-fit, minmax(min(25rem, 100%), 1fr))',
+						gridGap: '4px',
 						padding: 10,
 					  }} // Ajusta el estilo del contenedor de contenido
 					/* style={{ flex: 1 }} // Ajusta el estilo de FlatList */
@@ -69,7 +69,7 @@ const FetchData = () => {
 							<Pressable onPress={() => {
 								navigator.navigate('MainDetails', {
 									idCharacter: item.id
-								})
+								});
 
 							}}>
 								<Image

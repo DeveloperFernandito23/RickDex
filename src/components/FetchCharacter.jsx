@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import { GENDERS, STATES } from './FetchData.jsx'
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { GENDERS, STATES } from './FetchData.jsx';
 
-const LIMIT = 42
-const URL_API = 'https://rickandmortyapi.com/api/character/'
+const LIMIT = 42;
+const URL_API = 'https://rickandmortyapi.com/api/character/';
 
 const FetchCharacter = ({ idCharacter }) => {
-	let navigator = useNavigation()
+	let navigator = useNavigation();
 
 	const [isLoading, setLoading] = useState(true);
 	const [character, setData] = useState([]);
@@ -17,23 +17,23 @@ const FetchCharacter = ({ idCharacter }) => {
 			const response = await fetch(`${URL_API}${idCharacter}`);
 			const json = await response.json();
 
-			setData(json)
+			setData(json);
 		} catch (error) {
 			console.error(error);
 		} finally {
 			setLoading(false);
 		}
-	}
+	};
 
 	useEffect(() => {
-		fetchCharacter()
+		fetchCharacter();
 		navigator.setOptions({
 			title: `${character.name} - ${character.id}`
-		})
-	})
+		});
+	});
 
-	let originCharacter = character.origin?.name
-	let locationCharacter = character.location?.name
+	let originCharacter = character.origin?.name;
+	let locationCharacter = character.location?.name;
 
 	return (
 		<SafeAreaView className=' flex-1 bg-white'>

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import { View, ImageBackground, Image } from 'react-native'
-import FetchData from './FetchData.jsx'
-import { useNavigation } from '@react-navigation/native'
+import React, { useEffect } from 'react';
+import { View, ImageBackground, Image } from 'react-native';
+import FetchData from './FetchData.jsx';
+import { useNavigation } from '@react-navigation/native';
 
 //cambiar estilo
 const Main = () => {
-	const navigator = useNavigation()
+	const navigator = useNavigation();
 
 	useEffect(() => {
 		navigator.setOptions({
