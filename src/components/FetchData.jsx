@@ -61,7 +61,7 @@ const FetchData = () => {
 						padding: 10,
 						width: '90%',
 						margin: 'auto'
-					}} // Ajusta el estilo del contenedor de contenido
+					}} 
 					/* style={{ flex: 1 }} // Ajusta el estilo de FlatList */
 					ListFooterComponent={() =>
 						isLoading ? <ActivityIndicator /> : null
@@ -73,8 +73,8 @@ const FetchData = () => {
 									idCharacter: item.id
 								});
 
-							}}
-							className='items-center bg-black/60 rounded-3xl p-8' id='prueba2'>
+							}}// Probando el color para ver si queda bien sin opacidad con el color de la api
+							className='items-center bg-gray-600 rounded-3xl p-8'>
 								<Image
 									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
 									style={{ margin: 0 }}
