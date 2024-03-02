@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, ImageBackground, Image } from 'react-native';
-import FetchData from './FetchData.jsx';
+import FetchData from './FetchData';
 import { useNavigation } from '@react-navigation/native';
 
 //cambiar estilo

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { GENDERS, STATES } from './FetchData.jsx';
+import { GENDERS, STATES } from './FetchData';
 
 const LIMIT = 42;
 const URL_API = 'https://rickandmortyapi.com/api/character/';
