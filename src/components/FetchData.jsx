@@ -71,7 +71,8 @@ const FetchData = () => {
 									idCharacter: item.id
 								});
 
-							}}>
+							}}
+							className='items-center' >
 								<Image
 									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
 									style={{ margin: 0 }}
