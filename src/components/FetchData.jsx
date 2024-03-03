@@ -19,6 +19,8 @@ export const STATES = {
 	unknown: 'rgb(192, 192, 224)'
 };
 
+export const [party, setParty] = useState('false');
+
 const FetchData = () => {
 	let navigator = useNavigation();
 
@@ -26,6 +28,7 @@ const FetchData = () => {
 	const [characters, setData] = useState([]);
 	const [highlightedId, setHighlightedId] = useState(null);
 	const [query, setQuery] = useState('');
+	
 
 	const fetchCharacters = async () => {
 		try {
@@ -52,8 +55,14 @@ const FetchData = () => {
 		setQuery(text)
 
 		let filteredData = allCharacters.filter((character) => character?.name.toLowerCase().includes(text))
-		
+
 		setData(filteredData)
+	}
+
+	const partyMode = () => {
+		const a = () => {
+
+		}
 	}
 
 	const overMouse = (id) => setHighlightedId(id)
@@ -69,6 +78,11 @@ const FetchData = () => {
 		hoverStyle: {
 			backgroundColor: 'rgb(75, 85, 99)',
 			gap: 8
+		},
+
+		colorDefault: {
+			borderColor: STATES[item.status],
+			filter: 'drop-shadow(0 0 33px ' + STATES[item.status] + ')'
 		}
 	});
 
@@ -134,11 +148,13 @@ const FetchData = () => {
 								onMouseLeave={() => leaveMouse()}
 							>
 								<Image
+									id={ 'party-' + item.id + party }
 									className={'w-52 h-52 mr-8 rounded-full border-4'}
 									style={{ margin: 0, borderColor: STATES[item.status], filter: 'drop-shadow(0 0 33px ' + STATES[item.status] + ')' }}
 									source={{
 										uri: item.image,
 									}}
+									onLoad={ () => partyMode() }
 								/>
 								<Text className='font-bold text-xl text-center text-white'>{item.name}</Text>
 								<Text className='font-bold text-l text-center text-white'>{GENDERS[item.gender]}</Text>

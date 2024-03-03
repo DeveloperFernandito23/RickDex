@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, ImageBackground, Image, Text, StyleSheet, Pressable } from 'react-native';
-import FetchData from './FetchData';
+import { FetchData, setParty } from './FetchData';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-web';
 import * as Font from 'expo-font';
+
 
 //cambiar estilo
 const Main = () => {
@@ -64,19 +65,26 @@ const Main = () => {
 			<ImageBackground
 				source={require('../images/background.jpg')}
 				resizeMode={'cover'}
-				style={{ flex: 1, width: '100%', height: '100%' }}
+				style={{ flex: 1, width: '100%', height: '100%' }} x
 			>
 				<ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16}>
-					<View id='start'style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center'}}> {/* Habría que poner lo del fondo grande*/}
-						<Text
-							style={styles.textWithBorder}>
-							RickDex
-						</Text>
-						<Image
-							className='w-40 h-40 mr-8'
-							source={require('../images/portal.png')}
-							style={{ margin: 0, marginTop: '1rem', position: 'relative' }}
-						/>
+					<View id='start' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center' }}> {/* Habría que poner lo del fondo grande*/}
+						<Pressable
+							className='items-center'
+							onPress={() => {
+								setParty()
+							}}
+						>
+							<Text
+								style={styles.textWithBorder}>
+								RickDex
+							</Text>
+							<Image
+								className='w-40 h-40 mr-8'
+								source={require('../images/portal.png')}
+								style={{ margin: 0, marginTop: '1rem', position: 'relative' }}
+							/>
+						</Pressable>
 						<FetchData />
 					</View>
 				</ScrollView>
