@@ -21,14 +21,13 @@ export const STATES = {
 };
 
 const FetchData = () => {
-	let navigator = useNavigation();
-
+	const navigator = useNavigation();
+	const { party } = useContext(PartyContext);
 	const [isLoading, setLoading] = useState(true);
 	const [characters, setData] = useState([]);
 	const [highlightedId, setHighlightedId] = useState(null);
 	const [query, setQuery] = useState('');
-	const [partyItem, setPartyItem] = useState(''); 
-	const { party } = useContext(PartyContext); 
+	const [partyItem, setPartyItem] = useState('');
 
 	const fetchCharacters = async () => {
 		try {
@@ -58,13 +57,12 @@ const FetchData = () => {
 
 		setData(filteredData);
 	};
-	
+
 	const partyMode = () => {
 		if (party !== '-false') {
 			const aleatoryNumber = () => Math.floor(Math.random() * 256);
 
 			let text = `rgb(${aleatoryNumber()}, ${aleatoryNumber()}, ${aleatoryNumber()})`;
-			console.log(text)
 
 			setPartyItem(text);
 		}
@@ -148,7 +146,6 @@ const FetchData = () => {
 								onMouseLeave={() => leaveMouse()}
 							>
 								<Image
-									id={'party-' + item.id + party}
 									className={'w-52 h-52 mr-8 rounded-full border-4'}
 									style={{ margin: 0, borderColor: (party === '-false' ? STATES[item.status] : partyItem), filter: 'drop-shadow(0 0 33px ' + (party === '-false' ? STATES[item.status] : partyItem) + ')' }}
 									source={{
