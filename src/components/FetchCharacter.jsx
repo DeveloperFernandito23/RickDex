@@ -81,13 +81,21 @@ const FetchCharacter = ({ idCharacter }) => {
 								</View>
 								<View>
 									<Image source={require('../images/details-icons/specie/human.png')} />
-									{/* <Image source={require('../images/details-icons/specie/alien.png')} /> */}
+									<Image source={require('../images/details-icons/specie/alien.png')} />
 									<Text className='font-bold text-3xl text-white'>Especie: {characterSpecies}</Text>
 								</View>
-								<Text className='font-bold text-3xl text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
-								<Text className='font-bold text-3xl text-white'>Género: {characterGender}</Text>
-								<Text className='font-bold text-3xl text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
-								<Text className='font-bold text-3xl text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+								<View>
+									<Text className='font-bold text-3xl text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
+								</View>
+								<View>
+									<Text className='font-bold text-3xl text-white'>Género: {characterGender}</Text>
+								</View>
+								<View>
+									<Text className='font-bold text-3xl text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
+								</View>
+								<View>
+									<Text className='font-bold text-3xl text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+								</View>
 							</View>
 						</View>
 					)}
