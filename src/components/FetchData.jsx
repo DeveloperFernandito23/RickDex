@@ -85,7 +85,7 @@ const FetchData = () => {
 					paddingHorizontal: 20,
 					paddingVertical: 10,
 					borderColor: '#ccc',
-					borderWidth: 1,
+					borderWidth: 3,
 					borderRadius: 8,
 					width: 'min(25rem, 83%)',
 					margin: 'auto',

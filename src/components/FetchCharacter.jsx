@@ -76,7 +76,7 @@ const FetchCharacter = ({ idCharacter }) => {
 								<View>
 									<Image source={require('../images/details-icons/state/dead.png')} />
 									<Image source={require('../images/details-icons/state/alive.png')} />
-									<Image source={require('../images/details-icons/state/question.png')} />
+									<Image source={require('../images/details-icons/question.png')} />
 									<Text className='font-bold text-3xl text-white'>Estado: {characterStatus}</Text>
 								</View>
 								<View>
@@ -88,12 +88,20 @@ const FetchCharacter = ({ idCharacter }) => {
 									<Text className='font-bold text-3xl text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
 								</View>
 								<View>
+									<Image source={require('../images/details-icons/gender/male.png')} />
+									<Image source={require('../images/details-icons/gender/female.png')} />
+									<Image source={require('../images/details-icons/gender/genderless.png')} />
+									<Image source={require('../images/details-icons/question.png')} />
 									<Text className='font-bold text-3xl text-white'>Género: {characterGender}</Text>
 								</View>
 								<View>
+									<Image source={require('../images/details-icons/origin/planets.png')} />
+									<Image source={require('../images/details-icons/question.png')} />
 									<Text className='font-bold text-3xl text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
 								</View>
 								<View>
+									<Image source={require('../images/details-icons/location/citadel.png')} />
+									<Image source={require('../images/details-icons/question.png')} />
 									<Text className='font-bold text-3xl text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
 								</View>
 							</View>
