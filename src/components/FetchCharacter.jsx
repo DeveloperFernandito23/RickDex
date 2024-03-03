@@ -58,29 +58,38 @@ const FetchCharacter = ({ idCharacter }) => {
 					className='p-8'
 					style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1 }}
 				>
-					{ isLoading ? (
+					{isLoading ? (
 						<ActivityIndicator />
 					) : (
 						<View
-						className='flex-row max-w-s justify-between flex-wrap 	rounded-3xl p-7'
-						style={{ backgroundColor: 'rgb(75, 85, 99)' }}
-					>
-						<Image
-							className={'mr-8 rounded-xl'}
-							style={{ margin: 0, width: 'min(33rem, 100%)', height: 'min(27rem)' }} //Queda pendiente poner esto responsivo para el fffuuuucking phonne de tu colega
-							source={{
-								uri: character.image
-							}}
-						/>
-						<View className='justify-around'>
-							<Text className='font-bold text-3xl right-20 text-white'>Estado: {characterStatus}</Text>
-							<Text className='font-bold text-3xl right-20 text-white'>Especie: {characterSpecies}</Text>
-							<Text className='font-bold text-3xl right-20 text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
-							<Text className='font-bold text-3xl right-20 text-white'>Género: {characterGender}</Text>
-							<Text className='font-bold text-3xl right-20 text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
-							<Text className='font-bold text-3xl right-20 text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+							className='flex-row max-w-s justify-between flex-wrap rounded-3xl p-7'
+							style={{ backgroundColor: 'rgb(75, 85, 99)' }}
+						>
+							<Image
+								className={'mr-8 rounded-xl'}
+								style={{ margin: 0, width: 'min(33rem, 100%)', height: 'min(27rem)' }} //Queda pendiente poner esto responsivo para el fffuuuucking phonne de tu colega
+								source={{
+									uri: character.image
+								}}
+							/>
+							<View className='justify-around'>
+								<View>
+									<Image source={require('../images/details-icons/state/dead.png')} />
+									<Image source={require('../images/details-icons/state/alive.png')} />
+									<Image source={require('../images/details-icons/state/question.png')} />
+									<Text className='font-bold text-3xl text-white'>Estado: {characterStatus}</Text>
+								</View>
+								<View>
+									<Image source={require('../images/details-icons/specie/human.png')} />
+									{/* <Image source={require('../images/details-icons/specie/alien.png')} /> */}
+									<Text className='font-bold text-3xl text-white'>Especie: {characterSpecies}</Text>
+								</View>
+								<Text className='font-bold text-3xl text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
+								<Text className='font-bold text-3xl text-white'>Género: {characterGender}</Text>
+								<Text className='font-bold text-3xl text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
+								<Text className='font-bold text-3xl text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+							</View>
 						</View>
-					</View>
 					)}
 				</View>
 			</ImageBackground>
