@@ -47,6 +47,38 @@ const FetchCharacter = ({ idCharacter }) => {
 
 	let characterStatus = STATES[character.status];
 
+
+
+	let statusImagePath;
+	if (characterStatus == 'Vivo' || characterStatus == 'Viva') {
+		statusImagePath = require('../images/details-icons/state/alive.png')
+	} else if (characterStatus == 'Muerto' || characterStatus == 'Muerta') {
+		statusImagePath = require('../images/details-icons/state/dead.png')
+	} else {
+		statusImagePath = require('../images/details-icons/question.png')
+	}
+
+	let specieImagePath = characterSpecies == 'Human' ? require('../images/details-icons/specie/human.png') : require('../images/details-icons/specie/alien.png')
+
+	let typeImagePath = characterType == '' ? require('../images/details-icons/type/normal.png') : require('../images/details-icons/type/potion.png')
+
+	let genderImagePath
+	if (characterGender == 'Masculino') {
+		genderImagePath = require('../images/details-icons/gender/male.png')
+	} else if (characterGender == 'Femenino') {
+		genderImagePath = require('../images/details-icons/gender/female.png')
+	} else if (characterGender == 'Sin género') {
+		genderImagePath = require('../images/details-icons/gender/genderless.png')
+	} else {
+		genderImagePath = require('../images/details-icons/question.png')
+	}
+
+	let originImagePath = characterOrigin == 'unknown' ? require('../images/details-icons/question.png') : require('../images/details-icons/origin/planets.png')
+
+	let locationImagePath = characterLocation == 'unknown' ? require('../images/details-icons/question.png') : require('../images/details-icons/location/citadel.png')
+
+
+
 	return (
 		<SafeAreaView style={{ height: '100vh' }}>
 			<ImageBackground
@@ -74,34 +106,27 @@ const FetchCharacter = ({ idCharacter }) => {
 							/>
 							<View className='justify-around'>
 								<View>
-									<Image source={require('../images/details-icons/state/dead.png')} />
-									<Image source={require('../images/details-icons/state/alive.png')} />
-									<Image source={require('../images/details-icons/question.png')} />
+									<Image source={statusImagePath} />
 									<Text className='font-bold text-3xl text-white'>Estado: {characterStatus}</Text>
 								</View>
 								<View>
-									<Image source={require('../images/details-icons/specie/human.png')} />
-									<Image source={require('../images/details-icons/specie/alien.png')} />
+									<Image source={specieImagePath} />
 									<Text className='font-bold text-3xl text-white'>Especie: {characterSpecies}</Text>
 								</View>
 								<View>
+									<Image source={typeImagePath} />
 									<Text className='font-bold text-3xl text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
 								</View>
 								<View>
-									<Image source={require('../images/details-icons/gender/male.png')} />
-									<Image source={require('../images/details-icons/gender/female.png')} />
-									<Image source={require('../images/details-icons/gender/genderless.png')} />
-									<Image source={require('../images/details-icons/question.png')} />
+									<Image source={genderImagePath} />
 									<Text className='font-bold text-3xl text-white'>Género: {characterGender}</Text>
 								</View>
 								<View>
-									<Image source={require('../images/details-icons/origin/planets.png')} />
-									<Image source={require('../images/details-icons/question.png')} />
+									<Image source={originImagePath} />
 									<Text className='font-bold text-3xl text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
 								</View>
 								<View>
-									<Image source={require('../images/details-icons/location/citadel.png')} />
-									<Image source={require('../images/details-icons/question.png')} />
+									<Image source={locationImagePath} />
 									<Text className='font-bold text-3xl text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
 								</View>
 							</View>
