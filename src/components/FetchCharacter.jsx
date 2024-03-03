@@ -49,29 +49,13 @@ const FetchCharacter = ({ idCharacter }) => {
 
 
 
-	let statusImagePath;
-	if (characterStatus == 'Vivo' || characterStatus == 'Viva') {
-		statusImagePath = require('../images/details-icons/state/alive.png')
-	} else if (characterStatus == 'Muerto' || characterStatus == 'Muerta') {
-		statusImagePath = require('../images/details-icons/state/dead.png')
-	} else {
-		statusImagePath = require('../images/details-icons/question.png')
-	}
+	let statusImagePath = characterStatus == 'Vivo' || characterStatus == 'Viva' ? require('../images/details-icons/state/alive.png') : characterStatus == 'Muerto' || characterStatus == 'Muerta' ? require('../images/details-icons/state/dead.png') : require('../images/details-icons/question.png');
 
 	let specieImagePath = characterSpecies == 'Human' ? require('../images/details-icons/specie/human.png') : require('../images/details-icons/specie/alien.png')
 
 	let typeImagePath = characterType == '' ? require('../images/details-icons/type/normal.png') : require('../images/details-icons/type/potion.png')
 
-	let genderImagePath
-	if (characterGender == 'Masculino') {
-		genderImagePath = require('../images/details-icons/gender/male.png')
-	} else if (characterGender == 'Femenino') {
-		genderImagePath = require('../images/details-icons/gender/female.png')
-	} else if (characterGender == 'Sin género') {
-		genderImagePath = require('../images/details-icons/gender/genderless.png')
-	} else {
-		genderImagePath = require('../images/details-icons/question.png')
-	}
+	let genderImagePath = characterGender == 'Masculino' ? require('../images/details-icons/gender/male.png') : characterGender == 'Femenino' ? require('../images/details-icons/gender/female.png') : characterGender == 'Sin género' ? genderImagePath = require('../images/details-icons/gender/genderless.png') : genderImagePath = require('../images/details-icons/question.png')
 
 	let originImagePath = characterOrigin == 'unknown' ? require('../images/details-icons/question.png') : require('../images/details-icons/origin/planets.png')
 
