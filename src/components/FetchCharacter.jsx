@@ -81,7 +81,7 @@ const FetchCharacter = ({ idCharacter }) => {
 								</View>
 								<View>
 									<Image source={require('../images/details-icons/specie/human.png')} />
-									{/* <Image source={require('../images/details-icons/specie/alien.png')} /> */}
+									<Image source={require('../images/details-icons/specie/alien.png')} />
 									<Text className='font-bold text-3xl text-white'>Especie: {characterSpecies}</Text>
 								</View>
 								<Text className='font-bold text-3xl text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
