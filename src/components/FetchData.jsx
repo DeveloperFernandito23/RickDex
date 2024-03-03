@@ -14,9 +14,9 @@ export const GENDERS = {
 	Genderless: 'Sin género'
 };
 export const STATES = {
-	Alive: 'border-green-500',
-	Dead: 'border-red-500',
-	unknown: 'border-gray-500'
+	Alive: 'rgb(34, 197, 94)',
+	Dead: 'rgb(239, 68, 68)',
+	unknown: 'rgb(192, 192, 224)'
 };
 
 const FetchData = () => {
@@ -134,8 +134,8 @@ const FetchData = () => {
 								onMouseLeave={() => leaveMouse()}
 							>
 								<Image
-									className={'w-52 h-52 mr-8 rounded-full border-4 ' + STATES[item.status]}
-									style={{ margin: 0 }}
+									className={'w-52 h-52 mr-8 rounded-full border-4'}
+									style={{ margin: 0, borderColor: STATES[item.status], filter: 'drop-shadow(0 0 33px ' + STATES[item.status] + ')' }}
 									source={{
 										uri: item.image,
 									}}
