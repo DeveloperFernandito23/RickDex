@@ -5,7 +5,6 @@ import Main from '../src/components/Main.jsx';
 import MainDetails from '../src/components/MainDetails.jsx';
 import Favicon from 'react-favicon';
 
-
 const Stack = createNativeStackNavigator();
 
 export default function MainStack() {

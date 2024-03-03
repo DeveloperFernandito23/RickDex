@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { View, ImageBackground, Image, Text, StyleSheet, Pressable } from 'react-native';
-import { FetchData, setParty } from './FetchData';
+import React, { useEffect, useState, useRef, useContext } from 'react';
+import { View, ImageBackground, Image, Text, StyleSheet, Pressable} from 'react-native';
+import  FetchData  from './FetchData';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-web';
 import * as Font from 'expo-font';
-
+import { PartyContext } from './PartyProvider'; 
 
 //cambiar estilo
 const Main = () => {
 	const navigator = useNavigation();
-	const [fontsLoaded, setFontsLoaded] = useState(false)
-
+	const [fontsLoaded, setFontsLoaded] = useState(false);
+	const { party, setParty } = useContext(PartyContext);
 	const [scrollY, setScrollY] = useState(0);
 
 	const handleScroll = (event) => {
@@ -28,18 +28,18 @@ const Main = () => {
 	const loadFonts = async () => {
 		await Font.loadAsync({
 			'rickDexFont': require('../fonts/rickDexFont.ttf')
-		})
+		});
 
-		setFontsLoaded(true)
-	}
+		setFontsLoaded(true);
+	};
 
 	const startMain = () => {
 		navigator.setOptions({
 			title: 'RickDex',
 		});
 
-		loadFonts()
-	}
+		loadFonts();
+	};
 
 	const styles = StyleSheet.create({
 		textWithBorder: {
@@ -57,7 +57,7 @@ const Main = () => {
 	const scrollViewRef = useRef();
 
 	useEffect(() => {
-		startMain()
+		startMain();
 	}, []);
 
 	return (
@@ -65,14 +65,14 @@ const Main = () => {
 			<ImageBackground
 				source={require('../images/background.jpg')}
 				resizeMode={'cover'}
-				style={{ flex: 1, width: '100%', height: '100%' }} x
+				style={{ flex: 1, width: '100%', height: '100%' }}
 			>
 				<ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16}>
 					<View id='start' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center' }}> {/* Habría que poner lo del fondo grande*/}
 						<Pressable
 							className='items-center'
 							onPress={() => {
-								setParty()
+								party === '-false' ? setParty('-true') : setParty('-false')
 							}}
 						>
 							<Text
