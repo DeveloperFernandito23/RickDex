@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import { View, ImageBackground, Image, Text, StyleSheet, Pressable} from 'react-native';
-import  FetchData  from './FetchData';
+import { View, ImageBackground, Image, Text, StyleSheet, Pressable } from 'react-native';
+import FetchData from './FetchData';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-web';
 import * as Font from 'expo-font';
-import { PartyContext } from './PartyProvider'; 
+import { PartyContext } from './PartyProvider';
 
-//cambiar estilo
 const Main = () => {
 	const navigator = useNavigation();
-	const [fontsLoaded, setFontsLoaded] = useState(false);
 	const { party, setParty } = useContext(PartyContext);
+	const [fontsLoaded, setFontsLoaded] = useState(false);
 	const [scrollY, setScrollY] = useState(0);
 
 	const handleScroll = (event) => {
@@ -38,7 +37,7 @@ const Main = () => {
 			title: 'RickDex',
 		});
 
-		loadFonts();
+		if(!fontsLoaded) loadFonts();
 	};
 
 	const styles = StyleSheet.create({
@@ -67,8 +66,8 @@ const Main = () => {
 				resizeMode={'cover'}
 				style={{ flex: 1, width: '100%', height: '100%' }}
 			>
-				<ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16}>
-					<View id='start' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', flex: 1, alignItems: 'center' }}> {/* Habría que poner lo del fondo grande*/}
+				<ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+					<View id='start' style={{ flex: 1, alignItems: 'center' }}>
 						<Pressable
 							className='items-center'
 							onPress={() => {

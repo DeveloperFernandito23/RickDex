@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import FetchCharacter from './FetchCharacter.jsx';
+import { ScrollView } from 'react-native-web';
 
 
 const MainDetails = ({ route }) => {
@@ -8,9 +9,9 @@ const MainDetails = ({ route }) => {
     const { idCharacter } = route.params
 
     return (
-        <View className='w-full'>
+        <ScrollView>
             <FetchCharacter idCharacter={idCharacter} />
-        </View>
+        </ScrollView>
     );
 };
 

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, ActivityIndicator, Image, SafeAreaView, ImageBackground } from 'react-native';
+import { Text, View, ActivityIndicator, Image, SafeAreaView, ImageBackground, StyleSheet, useWindowDimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { GENDERS } from './FetchData';
 
 const URL_API = 'https://rickandmortyapi.com/api/character/';
 
 const FetchCharacter = ({ idCharacter }) => {
-	let navigator = useNavigation();
-
+	const navigator = useNavigation();
+	const { width } = useWindowDimensions();
 	const [isLoading, setLoading] = useState(true);
 	const [character, setData] = useState([]);
 
@@ -47,8 +47,6 @@ const FetchCharacter = ({ idCharacter }) => {
 
 	let characterStatus = STATES[character.status];
 
-
-
 	let statusImagePath = characterStatus == 'Vivo' || characterStatus == 'Viva' ? require('../images/details-icons/state/alive.png') : characterStatus == 'Muerto' || characterStatus == 'Muerta' ? require('../images/details-icons/state/dead.png') : require('../images/details-icons/question.png');
 
 	let specieImagePath = characterSpecies == 'Human' ? require('../images/details-icons/specie/human.png') : require('../images/details-icons/specie/alien.png')
@@ -60,8 +58,22 @@ const FetchCharacter = ({ idCharacter }) => {
 	let originImagePath = characterOrigin == 'unknown' ? require('../images/details-icons/question.png') : require('../images/details-icons/origin/planets.png')
 
 	let locationImagePath = characterLocation == 'unknown' ? require('../images/details-icons/question.png') : require('../images/details-icons/location/citadel.png')
+	// 'min(27rem, 55vh)'
 
+	const styles = StyleSheet.create({
+		detailsContainer: {
+			flexDirection: 'row',
+			alignItems: 'center',
+			gap: 15,
+		},
 
+		details: {
+			fontWeight: 700,
+			fontSize: width > 600 ? '2.25rem' : '1.5rem', /* 36px */
+			lineHeight: width > 600 ? '2.5rem' : '2rem', /* 40px */
+			color: 'white'
+		}
+	})
 
 	return (
 		<SafeAreaView style={{ height: '100vh' }}>
@@ -82,36 +94,37 @@ const FetchCharacter = ({ idCharacter }) => {
 							style={{ backgroundColor: 'rgb(75, 85, 99)' }}
 						>
 							<Image
+								id='foto'
 								className={'mr-8 rounded-xl'}
-								style={{ margin: 0, width: 'min(33rem, 100%)', height: 'min(27rem)' }} //Queda pendiente poner esto responsivo para el fffuuuucking phonne de tu colega
+								style={{ margin: 0, width: 'min(33rem, 100%)', height: width > 600 ? '30rem' : '20rem' }}
 								source={{
 									uri: character.image
 								}}
 							/>
-							<View className='justify-around'>
-								<View>
+							<View className='justify-around' style={{ width: width > 600 ? '50%' : '100%', marginTop: width > 600 ? 0 : 25 }}>
+								<View style={styles.detailsContainer}>
 									<Image source={statusImagePath} />
-									<Text className='font-bold text-3xl text-white'>Estado: {characterStatus}</Text>
+									<Text style={styles.details}>Estado: {characterStatus}</Text>
 								</View>
-								<View>
+								<View style={styles.detailsContainer}>
 									<Image source={specieImagePath} />
-									<Text className='font-bold text-3xl text-white'>Especie: {characterSpecies}</Text>
+									<Text style={styles.details}>Especie: {characterSpecies}</Text>
 								</View>
-								<View>
+								<View style={styles.detailsContainer}>
 									<Image source={typeImagePath} />
-									<Text className='font-bold text-3xl text-white'>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
+									<Text style={styles.details}>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
 								</View>
-								<View>
+								<View style={styles.detailsContainer}>
 									<Image source={genderImagePath} />
-									<Text className='font-bold text-3xl text-white'>Género: {characterGender}</Text>
+									<Text style={styles.details}>Género: {characterGender}</Text>
 								</View>
-								<View>
+								<View style={styles.detailsContainer}>
 									<Image source={originImagePath} />
-									<Text className='font-bold text-3xl text-white'>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
+									<Text style={styles.details}>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
 								</View>
-								<View>
+								<View style={styles.detailsContainer}>
 									<Image source={locationImagePath} />
-									<Text className='font-bold text-3xl text-white'>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+									<Text style={styles.details}>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
 								</View>
 							</View>
 						</View>
