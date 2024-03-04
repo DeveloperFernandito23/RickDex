@@ -67,11 +67,17 @@ const FetchCharacter = ({ idCharacter }) => {
 			gap: 15,
 		},
 
-		details: {
+		detailsKeys: {
 			fontWeight: 700,
 			fontSize: width > 600 ? '2.25rem' : '1.5rem', /* 36px */
 			lineHeight: width > 600 ? '2.5rem' : '2rem', /* 40px */
 			color: 'white'
+		},
+
+		detailsValues: {
+			fontWeight: 'normal',
+			fontStyle: 'italic',
+			marginLeft: '.25rem'
 		}
 	})
 
@@ -101,30 +107,30 @@ const FetchCharacter = ({ idCharacter }) => {
 									uri: character.image
 								}}
 							/>
-							<View className='justify-around' style={{ width: width > 600 ? '50%' : '100%', marginTop: width > 600 ? 0 : 25 }}>
+							<View className='justify-around' style={{ width: width > 600 ? '50%' : '100%', marginTop: width > 600 ? 0 : 25, gap: '1rem' }}>
 								<View style={styles.detailsContainer}>
 									<Image source={statusImagePath} />
-									<Text style={styles.details}>Estado: {characterStatus}</Text>
+									<Text style={styles.detailsKeys}>Estado: <Text style={styles.detailsValues}>{characterStatus}</Text></Text>
 								</View>
 								<View style={styles.detailsContainer}>
 									<Image source={specieImagePath} />
-									<Text style={styles.details}>Especie: {characterSpecies}</Text>
+									<Text style={styles.detailsKeys}>Especie: <Text  style={styles.detailsValues}>{characterSpecies}</Text></Text>
 								</View>
 								<View style={styles.detailsContainer}>
 									<Image source={typeImagePath} />
-									<Text style={styles.details}>Tipo: {characterType != '' ? characterType : 'Normal'}</Text>
+									<Text style={styles.detailsKeys}>Tipo: <Text  style={styles.detailsValues}>{characterType != '' ? characterType : 'Normal'}</Text></Text>
 								</View>
 								<View style={styles.detailsContainer}>
 									<Image source={genderImagePath} />
-									<Text style={styles.details}>Género: {characterGender}</Text>
+									<Text style={styles.detailsKeys}>Género: <Text  style={styles.detailsValues}>{characterGender}</Text></Text>
 								</View>
 								<View style={styles.detailsContainer}>
 									<Image source={originImagePath} />
-									<Text style={styles.details}>Origen: {characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text>
+									<Text style={styles.detailsKeys}>Origen: <Text  style={styles.detailsValues}>{characterOrigin != 'unknown' ? characterOrigin : 'Desconocido'}</Text></Text>
 								</View>
 								<View style={styles.detailsContainer}>
 									<Image source={locationImagePath} />
-									<Text style={styles.details}>Localización Actual: {characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text>
+									<Text style={styles.detailsKeys}>Localización Actual: <Text  style={styles.detailsValues}>{characterLocation != 'unknown' ? characterLocation : 'Desconocida'}</Text></Text>
 								</View>
 							</View>
 						</View>
