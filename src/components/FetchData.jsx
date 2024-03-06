@@ -75,12 +75,14 @@ const FetchData = () => {
     const styles = StyleSheet.create({
         defaultStyle: {
             backgroundColor: 'rgba(75, 85, 99, 0.75)',
-            gap: 8
+            gap: 8,
+            transition: 'background-color 0.25s ease-in-out',
         },
 
         hoverStyle: {
             backgroundColor: 'rgb(75, 85, 99)',
-            gap: 8
+            gap: 8,
+            transition: 'background-color 0.25s ease-in-out',
         }
     });
 
@@ -153,7 +155,7 @@ const FetchData = () => {
                                     source={{
                                         uri: item.image,
                                     }}
-                                    onLoad={() => partyMode()}
+                                    onLoad={party != '-false' ? () => partyMode() : ""}
                                 />
                                 <Text className='font-bold text-xl text-center text-white'>{item.name}</Text>
                                 <Text className='font-bold text-l text-center text-white'>{GENDERS[item.gender]}</Text>
