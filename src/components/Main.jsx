@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import { View, ImageBackground, Image, Text, StyleSheet, Pressable } from 'react-native';
 import FetchData from './FetchData';
 import { useNavigation } from '@react-navigation/native';
-import { ScrollView } from 'react-native-web';
+import { ScrollView } from 'react-native';
 import * as Font from 'expo-font';
 import { PartyContext } from './PartyProvider';
 
@@ -43,13 +43,12 @@ const Main = () => {
 	const styles = StyleSheet.create({
 		textWithBorder: {
 			fontFamily: 'rickDexFont',
-			fontSize: 100,
+			// fontSize: 75,
 			letterSpacing: 5,
 			color: '#02B1C7',
-			'-webkit-text-stroke': '2px #559B6A',
+			// '-webkit-text-stroke': '2px #559B6A',
 			position: 'absolute',
 			zIndex: 1,
-			margin: '2rem'
 		},
 	});
 
@@ -66,7 +65,7 @@ const Main = () => {
 				resizeMode={'cover'}
 				style={{ flex: 1, width: '100%', height: '100%' }}
 			>
-				<ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+				{/* <ScrollView ref={scrollViewRef} onScroll={handleScroll} scrollEventThrottle={16} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}> */}
 					<View id='start' style={{ flex: 1, alignItems: 'center' }}>
 						<Pressable
 							className='items-center'
@@ -75,7 +74,9 @@ const Main = () => {
 							}}
 						>
 							<Text
-								style={styles.textWithBorder}>
+								style={styles.textWithBorder}
+								className='text-7xl top-10'
+								>
 								RickDex
 							</Text>
 							<Image
@@ -86,7 +87,7 @@ const Main = () => {
 						</Pressable>
 						<FetchData />
 					</View>
-				</ScrollView>
+				{/* </ScrollView> */}
 				<View style={{ margin: 0, position: 'absolute', bottom: 10, right: 0, zIndex: 100, opacity: getOpacity() }}>
 					<Pressable
 						onPress={() => {

@@ -68,9 +68,9 @@ const FetchCharacter = ({ idCharacter }) => {
 		},
 
 		detailsKeys: {
-			fontWeight: 700,
-			fontSize: width > 600 ? '2.25rem' : '1.5rem', /* 36px */
-			lineHeight: width > 600 ? '2.5rem' : '2rem', /* 40px */
+			fontWeight: "700",
+			fontSize: width > 600 ? 36 : 20, /* 36px */
+			lineHeight: width > 600 ? 40 : 35, /* 40px */
 			color: 'white'
 		},
 
@@ -107,15 +107,15 @@ const FetchCharacter = ({ idCharacter }) => {
 									uri: character.image
 								}}
 							/>
-							<View className='justify-around' style={{ width: width > 600 ? '50%' : '100%', marginTop: width > 600 ? 0 : 25, gap: '1rem' }}>
+							<View className='justify-around' style={{ width: width > 600 ? '50%' : '100%', marginTop: width > 600 ? 0 : 25, gap: 36 }}>
 								<View style={styles.detailsContainer}>
 									<Image source={statusImagePath} />
 									<Text style={styles.detailsKeys}>Estado: <Text style={styles.detailsValues}>{characterStatus}</Text></Text>
-								</View>
+								</View> 
 								<View style={styles.detailsContainer}>
-									<Image source={specieImagePath} />
+								<Image source={specieImagePath} />
 									<Text style={styles.detailsKeys}>Especie: <Text  style={styles.detailsValues}>{characterSpecies}</Text></Text>
-								</View>
+								</View> 
 								<View style={styles.detailsContainer}>
 									<Image source={typeImagePath} />
 									<Text style={styles.detailsKeys}>Tipo: <Text  style={styles.detailsValues}>{characterType != '' ? characterType : 'Normal'}</Text></Text>

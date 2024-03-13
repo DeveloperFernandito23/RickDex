@@ -91,14 +91,18 @@ const FetchData = () => {
     }, []);
 
     return (
-        <SafeAreaView className='flex-1 w-full'>
+        <SafeAreaView className='flex-1 w-full items-center'>
             <TextInput
                 placeholder='Buscar Personaje...'
                 clearButtonMode='always'
                 style={{
                     paddingHorizontal: 20,
                     paddingVertical: 10,
-                    borderColor: '#ccc',
+                    borderColor: {
+                        r: 204,
+                        g: 204,
+                        b: 204,
+                      },
                     borderWidth: 3,
                     borderRadius: 8,
                     width: 'min(25rem, 83%)',
@@ -109,7 +113,7 @@ const FetchData = () => {
                     marginBottom: 33,
                 }}
                 autoCapitalize='none'
-                autoComplete={false}
+                // autoComplete={false}
                 value={query}
                 onChange={(text) => handleQuery(text?.nativeEvent?.text)}
             />
@@ -121,8 +125,10 @@ const FetchData = () => {
                 </View>
             ) : (
                 <FlatList
+                    className='w-full overflow-hidden'
                     data={characters}
                     keyExtractor={(item) => item.id}
+                    showsVerticalScrollIndicator={false}
                     contentContainerStyle={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
@@ -150,12 +156,12 @@ const FetchData = () => {
                                 onMouseLeave={() => leaveMouse()}
                             >
                                 <Image
-                                    className={'w-52 h-52 mr-8 rounded-full border-4'}
-                                    style={{ margin: 0, borderColor: (party === '-false' ? STATES[item.status] : partyItem), filter: 'drop-shadow(0 0 33px ' + (party === '-false' ? STATES[item.status] : partyItem) + ')' }}
+                                    className={'w-52 h-52 m-2 rounded-full border-4 items-center'}
+                                    style={{ borderColor: (party === '-false' ? STATES[item.status] : partyItem), alignItems: 'center' }} // filter: 'drop-shadow(0 0 33px ' + (party === '-false' ? STATES[item.status] : partyItem) + ')'
                                     source={{
                                         uri: item.image,
                                     }}
-                                    onLoad={party != '-false' ? () => partyMode() : ""}
+                                    onLoad={party != '-false' ? () => partyMode() : () => ""}
                                 />
                                 <Text className='font-bold text-xl text-center text-white'>{item.name}</Text>
                                 <Text className='font-bold text-l text-center text-white'>{GENDERS[item.gender]}</Text>
