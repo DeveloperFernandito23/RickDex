@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/RickDex/static/js/main.2e8fe28d.js",
-    "static/media/background.jpg": "/RickDex/static/media/background.0ee0ab93b69a732c5389.jpg",
-    "static/media/portal.png": "/RickDex/static/media/portal.0ca4959cd053a705ecb4.png",
-    "static/media/rickDexFont.ttf": "/RickDex/static/media/rickDexFont.c3d1dfc692e3547fed16.ttf",
-    "static/media/index.cjs": "/RickDex/static/media/index.cd351d7c31d0d3fccf96.cjs",
-    "index.html": "/RickDex/index.html",
-    "main.2e8fe28d.js.map": "/RickDex/static/js/main.2e8fe28d.js.map"
+    "main.js": "./static/js/main.2e8fe28d.js",
+    "static/media/background.jpg": "./static/media/background.0ee0ab93b69a732c5389.jpg",
+    "static/media/portal.png": "./static/media/portal.0ca4959cd053a705ecb4.png",
+    "static/media/rickDexFont.ttf": "./static/media/rickDexFont.c3d1dfc692e3547fed16.ttf",
+    "static/media/index.cjs": "./static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "index.html": "./index.html",
+    "main.2e8fe28d.js.map": "./static/js/main.2e8fe28d.js.map"
   },
   "entrypoints": [
-    "static/js/main.2e8fe28d.js"
+    "./static/js/main.2e8fe28d.js"
   ]
 }
