@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Main from '../src/components/Main.jsx';
-import MainDetails from '../src/components/MainDetails.jsx';
+import Main from './components/Main.jsx';
+import MainDetails from './components/MainDetails.jsx';
 import Favicon from 'react-favicon';
 
 const Stack = createNativeStackNavigator();

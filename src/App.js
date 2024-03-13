@@ -1,7 +1,7 @@
 import React from 'react';
 import { NativeWindStyleSheet } from 'nativewind';
-import MainStack from './navigation/MainStack.js';
-import { PartyProvider } from './src/components/PartyProvider.jsx';
+import MainStack from './MainStack.js';
+import { PartyProvider } from './components/PartyProvider.jsx';
 
 NativeWindStyleSheet.setOutput({
 	default: 'native',
