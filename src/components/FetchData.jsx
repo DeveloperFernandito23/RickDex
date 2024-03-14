@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { ActivityIndicator, FlatList, Text, TextInput, View, Image, SafeAreaView, Pressable, StyleSheet } from 'react-native';
+import { ActivityIndicator, FlatList, Text, TextInput, View, Image, SafeAreaView, Pressable, StyleSheet } from 'react-native-web';
 import { useNavigation } from '@react-navigation/native';
 import { PartyContext } from './PartyProvider';
 

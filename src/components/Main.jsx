@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import { View, ImageBackground, Image, Text, StyleSheet, Pressable } from 'react-native';
+import { View, ImageBackground, Image, Text, StyleSheet, Pressable } from 'react-native-web';
 import FetchData from './FetchData';
 import { useNavigation } from '@react-navigation/native';
-import { ScrollView } from 'react-native';
+import { ScrollView } from 'react-native-web';
 import * as Font from 'expo-font';
 import { PartyContext } from './PartyProvider';
 

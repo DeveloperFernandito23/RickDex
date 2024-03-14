@@ -3,6 +3,5 @@ module.exports = function(api) {
 	return {
 		presets: ['babel-preset-expo', 'babel-preset-flow', ['module:metro-react-native-babel-preset']],
 		plugins: ['nativewind/babel'],
-		babelrcRoots: ["*"]
 	};
 };

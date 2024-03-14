@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, ActivityIndicator, Image, SafeAreaView, ImageBackground, StyleSheet, useWindowDimensions } from 'react-native';
+import { Text, View, ActivityIndicator, Image, SafeAreaView, ImageBackground, StyleSheet, useWindowDimensions } from 'react-native-web';
 import { useNavigation } from '@react-navigation/native';
 import { GENDERS } from './FetchData';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text } from 'react-native-web';
 import FetchCharacter from './FetchCharacter.jsx';
-import { ScrollView } from 'react-native';
+import { ScrollView } from 'react-native-web';
 
 
 const MainDetails = ({ route }) => {
