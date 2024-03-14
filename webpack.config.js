@@ -11,5 +11,12 @@ module.exports = async function (env, argv) {
     crypto: false
   };
 
+  config.plugins = [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      '__DEV__': true, // Explicitly define __DEV__ for clarity
+    }),
+  ]
+
   return config;
 };
