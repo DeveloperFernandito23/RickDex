@@ -2,7 +2,7 @@
   "name": "rickdex",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "http://developerfernandito23.github.io/RickDex",
+  "homepage": "https://developerfernandito23.github.io/RickDex/",
   "scripts": {
     "start": "expo start --dev-client",
     "predeploy": "npm run build",
