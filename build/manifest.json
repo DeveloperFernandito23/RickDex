@@ -1,0 +1,7 @@
+{
+  "display": "standalone",
+  "lang": "en",
+  "name": "RickDex",
+  "short_name": "RickDex",
+  "start_url": "/?utm_source=web_app_manifest"
+}

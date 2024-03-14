@@ -1,14 +1,29 @@
 {
   "files": {
-    "main.js": "/RickDex/static/js/main.2e8fe28d.js",
+    "main.js": "/RickDex/static/js/main.da338c5f.js",
+    "static/js/666.325fa0d8.js": "/RickDex/static/js/666.325fa0d8.js",
     "static/media/background.jpg": "/RickDex/static/media/background.0ee0ab93b69a732c5389.jpg",
     "static/media/portal.png": "/RickDex/static/media/portal.0ca4959cd053a705ecb4.png",
     "static/media/rickDexFont.ttf": "/RickDex/static/media/rickDexFont.c3d1dfc692e3547fed16.ttf",
-    "static/media/index.cjs": "/RickDex/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "static/media/alien.png": "/RickDex/static/media/alien.19d11709db0c541e2c8a.png",
+    "static/media/planets.png": "/RickDex/static/media/planets.43a5e2d3ed47c674ec76.png",
+    "static/media/potion.png": "/RickDex/static/media/potion.54f1344dbf77bc02ed6e.png",
+    "static/media/normal.png": "/RickDex/static/media/normal.5304bec9c8d4577eeb89.png",
+    "static/media/citadel.png": "/RickDex/static/media/citadel.c6392b806bc4762345b4.png",
+    "static/media/male.png": "/RickDex/static/media/male.7db5d1d26d2399e22590.png",
+    "static/media/female.png": "/RickDex/static/media/female.516dc86f2bf34c4288c2.png",
+    "static/media/alive.png": "/RickDex/static/media/alive.09c3cc4b92b2b5e665c0.png",
+    "static/media/genderless.png": "/RickDex/static/media/genderless.3642abf2b5d34687f825.png",
+    "static/media/human.png": "/RickDex/static/media/human.9612e8a729e6b31d62c9.png",
     "index.html": "/RickDex/index.html",
-    "main.2e8fe28d.js.map": "/RickDex/static/js/main.2e8fe28d.js.map"
+    "static/media/dead.png": "/RickDex/static/media/dead.7fc1406be2a3098cd0b1.png",
+    "serve.json": "/RickDex/serve.json",
+    "manifest.json": "/RickDex/manifest.json",
+    "main.da338c5f.js.map": "/RickDex/static/js/main.da338c5f.js.map",
+    "666.325fa0d8.js.map": "/RickDex/static/js/666.325fa0d8.js.map"
   },
   "entrypoints": [
-    "static/js/main.2e8fe28d.js"
+    "static/js/666.325fa0d8.js",
+    "static/js/main.da338c5f.js"
   ]
 }
