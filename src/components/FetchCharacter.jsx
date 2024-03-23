@@ -58,7 +58,6 @@ const FetchCharacter = ({ idCharacter }) => {
 	let originImagePath = characterOrigin == 'unknown' ? require('../images/details-icons/question.png') : require('../images/details-icons/origin/planets.png')
 
 	let locationImagePath = characterLocation == 'unknown' ? require('../images/details-icons/question.png') : require('../images/details-icons/location/citadel.png')
-	// 'min(27rem, 55vh)'
 
 	const styles = StyleSheet.create({
 		detailsContainer: {
